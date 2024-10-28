@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <div id="Principal"></div>
+
+    <script type="text/babel">
+
+        function Titulo() {
+          return <h1>Titulo</h1>
+        }
+
+        const MainContainer = document.getElementById('Principal');
+        const Root = ReactDOM.createRoot(MainContainer);
+        Root.render(<Titulo/>);
+
+    </script>
+
+  </body>
+</html>
