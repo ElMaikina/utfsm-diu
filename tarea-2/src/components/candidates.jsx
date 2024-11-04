@@ -1,39 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { candidatesBySubject } from '../assets/mockData';
+import PreliminaryList from './PreliminaryList';
+import SelectedList from './SelectedList';
+import '../stylesheets/Candidates.css'; 
 
-function Candidates() {
-  const [postulantes, setPostulantes] = useState(['Juan', 'Maria', 'Carlos', 'Ana']);
+function Candidates({ selectedSubject }) {
+  const [postulantes, setPostulantes] = useState(candidatesBySubject[selectedSubject] || []);
   const [seleccionados, setSeleccionados] = useState([]);
 
-  // Mueve un postulante a la lista de seleccionados
-  const seleccionarPostulante = (nombre) => {
-    setPostulantes(postulantes.filter((postulante) => postulante !== nombre));
-    setSeleccionados([...seleccionados, nombre]);
+  useEffect(() => {
+    setPostulantes(candidatesBySubject[selectedSubject] || []);
+    setSeleccionados([]); // Reset selected candidates when the subject changes
+  }, [selectedSubject]);
+
+  const seleccionarPostulante = (id) => {
+    const candidatoSeleccionado = postulantes.find((postulante) => postulante.id === id);
+    setPostulantes(postulantes.filter((postulante) => postulante.id !== id));
+    setSeleccionados([...seleccionados, candidatoSeleccionado]);
+  };
+
+  const quitarPostulante = (id) => {
+    const candidatoRemovido = seleccionados.find((seleccionado) => seleccionado.id === id);
+    setSeleccionados(seleccionados.filter((seleccionado) => seleccionado.id !== id));
+    setPostulantes([...postulantes, candidatoRemovido]);
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
-      {/* Columna de postulantes */}
-      <div style={{ width: '45%', padding: '10px', border: '1px solid #ccc' }}>
-        <h2>Postulantes</h2>
-        <ul>
-          {postulantes.map((postulante) => (
-            <li key={postulante} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-              <span>{postulante}</span>
-              <button onClick={() => seleccionarPostulante(postulante)}>Seleccionar</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Columna de seleccionados */}
-      <div style={{ width: '45%', padding: '10px', border: '1px solid #ccc' }}>
-        <h2>Seleccionados</h2>
-        <ul>
-          {seleccionados.map((seleccionado) => (
-            <li key={seleccionado}>{seleccionado}</li>
-          ))}
-        </ul>
-      </div>
+    <div className="candidates">
+      <PreliminaryList postulantes={postulantes} onSelect={seleccionarPostulante} />
+      <SelectedList seleccionados={seleccionados} onRemove={quitarPostulante} />
     </div>
   );
 }
