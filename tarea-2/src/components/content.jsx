@@ -1,15 +1,21 @@
-import React from 'react'
-import Assignments from './assignments'
-import Candidates from './candidates'
+import React, { useState } from 'react';
+import Assignments from './assignments';
+import Candidates from './candidates';
+import { candidatesBySubject } from '../assets/mockData';
 
 const Layout = () => {
+    const [selectedSubject, setSelectedSubject] = useState('Arquitectura de Computadores');
+
+    const handleSubjectChange = (subject) => {
+        setSelectedSubject(subject);
+    };
+
     return (
         <div className='Content'>
-            <h1>Haga click para elegir la asignatura</h1>
-            <Assignments />
-            <Candidates />
+            <Assignments onSubjectChange={handleSubjectChange} />
+            <Candidates selectedSubject={selectedSubject} candidatesBySubject={candidatesBySubject} />
         </div>
-    )
-}
+    );
+};
 
-export default Layout
+export default Layout;

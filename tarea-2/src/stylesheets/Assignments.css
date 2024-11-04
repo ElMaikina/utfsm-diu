@@ -1,0 +1,26 @@
+.assignments {
+    display: flex;
+    flex-direction: column;
+}
+
+.assignments__select {
+    font-size: 30px; 
+    padding: 30px; 
+    margin-top: 8px;
+}
+
+.assignments__option {
+    display: flex;
+    align-items: center;
+    font-size: 18px; 
+}
+
+.assignments__icon {
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.assignments__select:focus .assignments__icon {
+    transform: rotate(90deg);
+}

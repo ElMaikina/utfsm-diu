@@ -1,23 +1,43 @@
 import React, { useState } from 'react';
+import { candidatesBySubject } from '../assets/mockData';
+import '../stylesheets/Assignments.css'; 
 
+function Assignments({ onSubjectChange }) { 
+    const subjects = Object.keys(candidatesBySubject).map((subject, index) => ({
+        code: `SUBJ${index + 1}`,
+        name: subject
+    }));
 
-function Assignments() { 
-    const [selectedValue, setSelectedValue] = useState('ARQ'); 
+    const [selectedValue, setSelectedValue] = useState(subjects[0].code); 
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
-        if (event.target.value == "ARQ") {
-            console.log("Se eligiio Arquitectura de Computadores")
-        }
-        if (event.target.value == "SIS") {
-            console.log("Se eligiio Sistemas Operativos")
+        const selectedSubject = subjects.find(subject => subject.code === event.target.value);
+        if (selectedSubject) {
+            onSubjectChange(selectedSubject.name);
         }
     };
+
     return (
-        <select value={selectedValue} onChange={handleChange}>
-        <option value="ARQ">INF-XXX Arquitectura de Computadores</option>
-        <option value="SIS">INF-XXX Sistemas Operativos</option>
-        </select>
+        <div className="assignments">
+            <select 
+                className="assignments__select" 
+                value={selectedValue} 
+                onChange={handleChange}
+            >
+                {subjects.map(subject => (
+                    <option 
+                        key={subject.code} 
+                        value={subject.code} 
+                        className="assignments__option"
+                    >
+                        <span className="assignments__icon">&#9656;</span>
+                        {subject.name}
+                    </option>
+                ))}
+            </select>
+        </div>
     );
 }
+
 export default Assignments;
