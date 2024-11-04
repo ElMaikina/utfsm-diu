@@ -5,7 +5,7 @@ import Login from './login'
 
 const Layout = () => {
     return (
-        <div className='NavVar'>
+        <div className='NavBar'>
             <User />
             <Logo />
             <Login />
