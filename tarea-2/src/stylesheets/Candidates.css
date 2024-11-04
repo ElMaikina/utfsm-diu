@@ -1,0 +1,99 @@
+.candidates {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .candidates__column {
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .candidates__title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-shadow: none; 
+    color: #000;
+  }
+  
+  .candidates__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    box-shadow: none;
+  }
+  
+  .candidates__info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .candidates__name {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #000;
+    text-shadow: none; 
+  }
+  
+  .candidates__status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+    text-shadow: none; 
+    color: #000;
+  }
+  
+  .candidates__status-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .candidates__status-icon--previous-assistant {
+    background-color: #800080; 
+  }
+  
+  .candidates__status-icon--meets-requirements {
+    background-color: #008000; 
+  }
+  
+  .candidates__status-icon--other-application {
+    background-color: #FFA500; 
+  }
+  
+  .candidates__button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    text-shadow: none; 
+  }
+  
+  .candidates__button:hover {
+    background-color: #218838;
+  }
+  
+  .candidates__button--remove {
+    padding: 5px 10px;
+    border: none;
+    background-color: #dc3545; 
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .candidates__button--remove:hover {
+    background-color: #c82333;
+  }
+  
