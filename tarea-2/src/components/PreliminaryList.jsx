@@ -1,7 +1,7 @@
 import React from 'react';
 import '../stylesheets/Candidates.css';
 
-function PreliminaryList({ postulantes, onSelect }) {
+function PreliminaryList({ postulantes, onSelect, onMoreInfo }) {
   return (
     <div className="candidates__column candidates__column--postulantes">
       <h2 className="candidates__title">Postulantes</h2>
@@ -14,12 +14,21 @@ function PreliminaryList({ postulantes, onSelect }) {
               <span>{postulante.statusText}</span>
             </div>
           </div>
+          <div className="candidates__buttons">
           <button 
-            className="candidates__button candidates__button--select"
-            onClick={() => onSelect(postulante.id)}
-          >
-            Seleccionar
-          </button>
+              className="candidates__button candidates__button--more-info candidates__button--discrete"
+              onClick={() => onMoreInfo(postulante.id)}
+            >
+              Más información
+            </button>
+            <button 
+              className="candidates__button candidates__button--select"
+              onClick={() => onSelect(postulante.id)}
+            >
+              Seleccionar
+            </button>
+            
+          </div>
         </div>
       ))}
     </div>

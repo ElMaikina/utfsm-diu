@@ -1,0 +1,42 @@
+.candidate-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black for background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; 
+}
+
+
+.candidate-details-modal__content {
+  background: #ffffff; 
+  color: #002e47;
+  text-shadow: none;
+  padding: 20px; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  width: 300px; 
+  max-width: 90%; 
+  text-align: center; 
+}
+
+/* Close button styling */
+.candidate-details-modal__close-button {
+  background-color: #d9534f; /* Red color for the close button */
+  color: #ffffff; /* White text color for contrast */
+  border: none; /* Remove default border */
+  padding: 10px 15px; /* Spacing inside the button */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor to indicate it's clickable */
+  margin-top: 20px; /* Space above the button */
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Hover effect for the close button */
+.candidate-details-modal__close-button:hover {
+  background-color: #c9302c; 
+}
