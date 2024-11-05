@@ -1,0 +1,13 @@
+.finalizar__container {
+  padding: 15px 10px;
+  float: right;
+}
+.finalizar__button {
+  padding: 15px 15px;
+  border: none;
+  background-color: #28a745;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+  text-shadow: none; 
+}

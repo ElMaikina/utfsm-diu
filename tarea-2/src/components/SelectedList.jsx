@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheets/Candidates.css';
+import '../stylesheets/Finalizar.css';
 
 function SelectedList({ seleccionados, onRemove }) {
   return (
