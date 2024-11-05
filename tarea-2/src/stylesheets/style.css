@@ -1,5 +1,7 @@
 html, body {
-    padding: 5px;
+    padding: 0;
+    margin: 0;
+    background-color: bisque;
 }
 
 /* CSS */
@@ -8,29 +10,70 @@ select {
   background-color: #F9B000;
   padding: 20px 100px;
   width: 100%;
+  border: none;
+  border-radius: 8px;
 
   font-weight: bold;
   font-size: 30px;
   color: white;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+
 }
 
 .Content {
     color: white;
     text-shadow: 0.2em 0.2em 0.2em black;
     background-image: url("../assets/background.png");
-    background-color: #cccccc;
-    height: 1000px;
+    background-color: #ffffff;
+    background-size: cover;
+    min-height: calc(100vh - 60px);
     padding: 50px;
 }
 
 .NavBar {
     background: #006095;
-    display: inline-block; 
-    height: 100px;
+    height: 60px;
     color: white;
     display: flex;
-    justify-content: space-between;
-} 
+    align-items: center;        
+    justify-content: space-between; 
+    padding: 0 20px;
+    position: relative;         
+}
+
+.User, .Login {
+    display: flex;
+    align-items: center;        
+}
+
+.Logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  
+    text-align: center;
+}
+
+.Logo img {
+    max-height: 60px;          
+    width: auto;               
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: #006095;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
 
 * {
     font-family: "Verdana";
