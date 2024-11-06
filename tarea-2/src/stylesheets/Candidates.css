@@ -115,3 +115,26 @@
     background: none;
   }
   
+  .candidates__filters {
+    margin-bottom: 20px;
+    width: 80px;
+    font-size: 16px;
+  }
+
+  .candidates__filters option {
+    font-size: 16px;
+  }
+  
+  .candidates__filters label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .candidates__filters select {
+    padding: 5px;
+    width: 89px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+  }
+  

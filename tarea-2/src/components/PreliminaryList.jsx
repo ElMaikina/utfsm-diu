@@ -34,5 +34,4 @@ function PreliminaryList({ postulantes, onSelect, onMoreInfo }) {
     </div>
   );
 }
-
 export default PreliminaryList;
