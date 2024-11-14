@@ -1,0 +1,118 @@
+/* Contenedor principal */
+.signin {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sección superior con fondo azul */
+.signin__header {
+    background-color: #F9B000  ;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Logo en la sección superior */
+.signin__logo {
+    margin-bottom: 1rem;
+}
+
+.signin__logo-image {
+    width: 300px;
+    height: auto;
+}
+
+/* Título en la sección superior */
+.signin__title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+/* Sección inferior con fondo amarillo */
+.signin__body {
+    background-color:#006095;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    flex-direction: column;
+}
+
+/* Contenedor del formulario */
+.signin__form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Elementos del formulario */
+.signin__form-group {
+    margin-bottom: 1rem;
+}
+
+.signin__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #2D3748;
+}
+
+.signin__input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.25rem;
+    color: #2D3748;
+}
+
+.signin__input:focus {
+    border-color: #6366F1;
+    outline: none;
+}
+
+/* Enlace y botón */
+.signin__link {
+    font-size: 0.875rem;
+    color: #5A67D8;
+    text-decoration: none;
+}
+
+.signin__link:hover {
+    text-decoration: underline;
+}
+
+/* signin.css */
+.signin__button {
+    background-color: #6366F1;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.25rem;
+    text-align: center;
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.signin__button:hover {
+    background-color: #4F46E5;
+}
+
+/* Estilo para el botón deshabilitado */
+.signin__button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed; /* Cambia el cursor para indicar que no es clickeable */
+}

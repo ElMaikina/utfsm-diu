@@ -3,6 +3,9 @@
     justify-content: space-between;
     padding: 20px;
   }
+  .candidates2 {
+    flex-direction: column;
+  }
   
   .candidates__column {
     width: 45%;
@@ -19,6 +22,11 @@
     color: #000;
   }
   
+  .candidates__list {
+    max-height: 225px; /* Limita la altura del contenedor a mostrar solo 5 postulantes */
+    overflow-y: auto; /* Añade un scroll vertical si el contenido sobrepasa el límite */
+    padding-right: 10px; /* Espacio para el scrollbar */
+  }
   .candidates__item {
     display: flex; 
     justify-content: space-between;
@@ -29,6 +37,9 @@
     background-color: #fff;
     margin-bottom: 10px;
     box-shadow: none;
+  }
+  .candidates__item:last-child {
+    margin-bottom: 0;
   }
   
   .candidates__info {
@@ -137,4 +148,36 @@
     border: 1px solid #ccc;
     font-size: 12px;
   }
-  
+  /* Limita la lista de seleccionados a 3 elementos visibles con scrollbar */
+  .candidates__item--selected{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px 15px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    box-shadow: none;
+  }
+
+.candidates__item--selected{
+  margin-bottom: 10px;
+}
+
+.candidates__item:last-child {
+  margin-bottom: 0;
+}
+
+.candidates__list--selected{
+  max-height: 225px; /* Limita la altura del contenedor a mostrar solo 5 postulantes */
+  overflow-y: auto; /* Añade un scroll vertical si el contenido sobrepasa el límite */
+  padding-right: 10px; /* Espacio para el scrollbar */
+}
+.candidates__column--seleccionados{
+  width: 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}

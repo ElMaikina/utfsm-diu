@@ -1,21 +1,22 @@
-// Candidates.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { candidatesBySubject } from '../assets/mockData';
 import PreliminaryList from './PreliminaryList';
 import SelectedList from './SelectedList';
-import CandidateDetailsModal from './CandidateDetailsModal'; // Import the new modal component
+import CandidateDetailsModal from './CandidateDetailsModal';
+import CandidatesFilter from './CandidatesFilter'; // Importa el nuevo componente de filtros
+import { SelectedAssistantsContext } from '../contexts/SelectedAssistantsContext';
 import '../stylesheets/Candidates.css';
 
 function Candidates({ selectedSubject }) {
+  const { selectedAssistants, setSelectedAssistants } = useContext(SelectedAssistantsContext);
   const [postulantes, setPostulantes] = useState(candidatesBySubject[selectedSubject] || []);
-  const [seleccionados, setSeleccionados] = useState([]);
-  const [candidatoSeleccionado, setCandidatoSeleccionado] = useState(null); // State to track selected candidate for more info
-  const [orden, setOrden] = useState(''); // State to track the current order filter
+  const [candidatoSeleccionado, setCandidatoSeleccionado] = useState(null);
+  const [orden, setOrden] = useState('');
 
   useEffect(() => {
     setPostulantes(candidatesBySubject[selectedSubject] || []);
-    setSeleccionados([]); // Reset selected candidates when the subject changes
-  }, [selectedSubject]);
+    setSelectedAssistants([]);
+  }, [selectedSubject, setSelectedAssistants]);
 
   useEffect(() => {
     ordenarPostulantes();
@@ -38,18 +39,18 @@ function Candidates({ selectedSubject }) {
   const seleccionarPostulante = (id) => {
     const candidato = postulantes.find((postulante) => postulante.id === id);
     setPostulantes(postulantes.filter((postulante) => postulante.id !== id));
-    setSeleccionados([...seleccionados, candidato]);
+    setSelectedAssistants([...selectedAssistants, candidato]);
   };
 
   const quitarPostulante = (id) => {
-    const candidato = seleccionados.find((seleccionado) => seleccionado.id === id);
-    setSeleccionados(seleccionados.filter((seleccionado) => seleccionado.id !== id));
+    const candidato = selectedAssistants.find((seleccionado) => seleccionado.id === id);
+    setSelectedAssistants(selectedAssistants.filter((seleccionado) => seleccionado.id !== id));
     setPostulantes([...postulantes, candidato]);
   };
 
   const mostrarMasInformacion = (id) => {
     const candidato = postulantes.find((postulante) => postulante.id === id) ||
-                      seleccionados.find((seleccionado) => seleccionado.id === id);
+                      selectedAssistants.find((seleccionado) => seleccionado.id === id);
     setCandidatoSeleccionado(candidato);
   };
 
@@ -58,21 +59,15 @@ function Candidates({ selectedSubject }) {
   };
 
   return (
-    <div className="candidates">
-      <div className="candidates__filters">
-        <label>Ordenar por:</label>
-        <select value={orden} onChange={(e) => setOrden(e.target.value)}>
-          <option value="">Seleccionar</option>
-          <option value="nota">Nota (de mayor a menor)</option>
-          <option value="riesgo">Riesgo Académico (de bajo a alto)</option>
-          <option value="status">Status (Ayudante anterior primero)</option>
-        </select>
+    <div className="candidates2">
+      <CandidatesFilter orden={orden} onOrdenChange={setOrden} />
+      <div className="candidates">
+        <PreliminaryList postulantes={postulantes} onSelect={seleccionarPostulante} onMoreInfo={mostrarMasInformacion} />
+        <SelectedList seleccionados={selectedAssistants} onRemove={quitarPostulante} onMoreInfo={mostrarMasInformacion} />
+        {candidatoSeleccionado && (
+          <CandidateDetailsModal candidato={candidatoSeleccionado} onClose={cerrarMasInformacion} />
+        )}
       </div>
-      <PreliminaryList postulantes={postulantes} onSelect={seleccionarPostulante} onMoreInfo={mostrarMasInformacion} />
-      <SelectedList seleccionados={seleccionados} onRemove={quitarPostulante} onMoreInfo={mostrarMasInformacion} />
-      {candidatoSeleccionado && (
-        <CandidateDetailsModal candidato={candidatoSeleccionado} onClose={cerrarMasInformacion} />
-      )}
     </div>
   );
 }
