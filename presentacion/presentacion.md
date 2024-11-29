@@ -1,6 +1,6 @@
 % **Presentación de Resultados del Testing de la Plataforma PAU**
 % **Integrantes:**  Martin Pino, Nicolas Barahona, Miguel Soto
-% **Fecha:** [Fecha de Presentación]
+% **Fecha:** Viernes 29 de Noviembre 2024
 
 ---
 
@@ -25,11 +25,39 @@
 
 ---
 
-# Video del Testing
+# Captura 1 Interfaz
 
-- A continuación, se presenta un enlace al video del testing realizado con usuarios reales:
+![Login usuario](Captura0.png)
 
-[**Ver video del testing**](https://www.ejemplo.com/video-testing)
+---
+
+# Captura 2 Interfaz
+
+![Pagina principal Seleccion de ayudantes](Captura1.png)
+
+---
+
+# Captura 3 Interfaz
+
+![Despliegue de asignaturas](Captura2.png)
+
+---
+
+# Captura 4 Interfaz
+
+![Detalles del candidato](Captura3.png)
+
+---
+
+# Captura 5 Interfaz
+
+![Ordenar ayudantes](Captura4.png)
+
+---
+
+# Captura 6 Interfaz
+
+![Prueba finalizada](Captura5.png)
 
 ---
 
@@ -99,4 +127,3 @@
 
 # ¡Gracias!
 - ¿Preguntas?
-
